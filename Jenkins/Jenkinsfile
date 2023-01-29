@@ -9,11 +9,11 @@ pipeline{
             }
      stage("Deploy"){
        steps{
-          sshagent(['tomcat-server']) {
+          sshagent(['tomcat-server-stokgolm']) {
           sh """
-          scp -o StrictHostKeyChecking=no target/myweb.war ubuntu@13.48.46.15:/opt/tomcat/webapps/
-          ssh ubuntu@13.48.46.15 /opt/tomcat/bin/shutdown.sh
-          ssh ubuntu@13.48.46.15 /opt/tomcat/bin/startup.sh
+          scp -o StrictHostKeyChecking=no target/myweb.war ubuntu@13.53.41.132:/opt/tomcat/webapps/
+          ssh ubuntu@13.53.41.132 /opt/tomcat/bin/shutdown.sh
+          ssh ubuntu@13.53.41.132 /opt/tomcat/bin/startup.sh
            """
             }
           }
